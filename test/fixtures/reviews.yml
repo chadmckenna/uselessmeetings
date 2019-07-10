@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  usefulness: 1
+  agenda_met: 1
+  on_topic: 1
+  improvements: MyString
+  other_comments: MyString
+  meeting: one
+
+two:
+  usefulness: 1
+  agenda_met: 1
+  on_topic: 1
+  improvements: MyString
+  other_comments: MyString
+  meeting: two

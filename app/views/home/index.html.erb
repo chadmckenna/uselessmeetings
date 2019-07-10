@@ -1,0 +1,25 @@
+<div class="max-w-full rounded overflow-hidden shadow-lg">
+  <% if flash[:notice] %>
+    <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 mb-4" role="alert">
+      <p class="font-bold">Notice:</p>
+      <p class="text-sm"><%= flash[:notice] %></p>
+    </div>
+  <% end %>
+  <div class="px-6 py-4">
+    <h1 class="font-bold mb-2">Was your last meeting totally useless?</h1>
+    <p class="text-gray-700 text-base">
+      Find out! Create an anonymous feedback form to send out to your meeting invitees to see what they think.
+    </p>
+  </div>
+  <div class="px-6 py-4">
+    <%= form_with scope: :meeting, url: meetings_path, local: true do |form| %>
+      <p>
+        <%= form.label 'Name of your last meeting' %><br />
+        <%= form.text_field :title %>
+      </p>
+      <p class="mt-2">
+        <%= form.submit 'Start a meeting review' %>
+      </p>
+    <% end %>
+  </div>
+</div>

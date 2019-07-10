@@ -1,0 +1,21 @@
+<div class="max-w-full rounded overflow-hidden shadow-lg">
+  <div class="px-6 py-4">
+    <h1 class="font-bold mb-2"><%= @meeting.title %></h1>
+    <p class="text-gray-700 text-base mt-4">
+      <label>Share this URL with your team:</label>
+      <input type="text" disabled value=<%= new_meeting_review_url(@meeting.share_slug) %> />
+    </p>
+    <h3 class="mt-4">
+      Your meeting reviews:
+    </h3>
+    <% @meeting.reviews.each do |review| %>
+      <p class="text-gray-700 bg-gray-100 text-base mt-4">
+        <%= review.usefulness %><br />
+        <%= review.agenda_met %><br />
+        <%= review.on_topic %><br />
+        <%= review.improvements %><br />
+        <%= review.other_comments %>
+      </p>
+    <% end %>
+  </div>
+</div>

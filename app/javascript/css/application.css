@@ -1,0 +1,57 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.max-w-screen-xl {
+  max-width: 768px!important;
+}
+
+h1 {
+  @apply .text-5xl;
+}
+
+h2 {
+  @apply .text-4xl;
+}
+
+h3 {
+  @apply .text-3xl;
+}
+
+h4 {
+  @apply .text-2xl;
+}
+
+h5 {
+  @apply .text-xl;
+}
+
+h6 {
+  @apply .text-lg;
+}
+
+input[type=text] {
+  @apply .shadow .appearance-none .border .rounded .w-full .py-2 .px-3 .text-gray-700 .leading-tight;
+
+  &:focus {
+    @apply .outline-none .shadow-outline;
+  }
+}
+
+input[type=submit] {
+  @apply .bg-blue-500 .text-white .font-bold .py-2 .px-4 .rounded ;
+
+  &:hover {
+    @apply .bg-blue-700;
+  }
+
+  &:focus {
+    @apply .outline-none .shadow-outline;
+  }
+}
+
+label {
+  @apply .block .text-gray-700 .text-sm .font-bold .mb-2;
+}
