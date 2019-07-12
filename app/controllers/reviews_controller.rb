@@ -22,7 +22,21 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:usefulness, :agenda_met, :on_topic, :improvements, :other_comments).merge(meeting: @meeting)
+    params.require(:review).permit(
+      :agenda,
+      :agenda_met,
+      :appropriate_meeting_time,
+      :appropriate_meeting_length,
+      :started_on_time,
+      :ended_on_time,
+      :action_items,
+      :on_topic,
+      :usefulness,
+      :necessary_to_attend,
+      :ability_to_contribute,
+      :improvements,
+      :other_comments
+    ).merge(meeting: @meeting)
   end
 end
 

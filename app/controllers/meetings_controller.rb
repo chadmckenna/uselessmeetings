@@ -10,6 +10,11 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.find_by(review_slug: params[:id])
   end
 
+  def review
+    @meeting = Meeting.find_by(review_slug: params[:meeting_id])
+    @results = @meeting.review_results
+  end
+
   private
   def meeting_params
     params.require(:meeting).permit(:title)

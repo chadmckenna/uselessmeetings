@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :meetings, only: [:create, :show] do
     resources :reviews, only: [:new, :create]
+    get 'review'
   end
 
   root 'home#index'

@@ -1,0 +1,7 @@
+<div class="mt-2 mb-2 clearfix">
+  <h5><%= title %></h5>
+  <% unless data.blank? %>
+    <div style="width: <%= data[:false] * 100 %>%" class="float-left bg-red-200 text-center">False (<%= data[:false] * 100 %>%)</div>
+    <div style="width: <%= data[:true] * 100 %>%" class="float-left bg-blue-200 text-center">True (<%= data[:true] * 100 %>%)</div>
+  <% end %>
+</div>

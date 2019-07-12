@@ -32,6 +32,14 @@ h6 {
   @apply .text-lg;
 }
 
+a {
+  @apply .text-blue-500 .underline;
+}
+
+a:hover {
+  @apply .no-underline;
+}
+
 input[type=text] {
   @apply .shadow .appearance-none .border .rounded .w-full .py-2 .px-3 .text-gray-700 .leading-tight;
 
@@ -40,18 +48,42 @@ input[type=text] {
   }
 }
 
+input[type=range] {
+  @apply .shadow .appearance-none .border .rounded .w-full .bg-gray-300;
+  width: 100%;
+  height: 10px;
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  @apply .shadow .bg-blue-500 .appearance-none .border .rounded-full .border-blue-700 .border-solid;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+input[type=range]::-moz-range-thumb {
+  @apply .shadow .bg-blue-500 .appearance-none .border .rounded-full .border-blue-700 .border-solid;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
 input[type=submit] {
   @apply .bg-blue-500 .text-white .font-bold .py-2 .px-4 .rounded ;
-
-  &:hover {
-    @apply .bg-blue-700;
-  }
 
   &:focus {
     @apply .outline-none .shadow-outline;
   }
 }
+input[type=submit]:hover {
+  @apply .bg-blue-700;
+}
+
+textarea {
+  @apply .shadow .appearance-none .border .rounded .w-full .py-2 .px-3 .text-gray-700 .leading-tight;
+}
 
 label {
-  @apply .block .text-gray-700 .text-sm .font-bold .mb-2;
+  @apply .block .text-gray-700 .text-base .font-bold .mb-2;
 }
