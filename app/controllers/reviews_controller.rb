@@ -9,9 +9,10 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
 
     if @review.save
-      flash[:notice] = "Review successfully added!"
+      flash[:notice] = "Thank you for reviewing `#{@review.meeting.title}`. Your review has been successfully submitted to the organizer."
       redirect_to :root
     else
+      flash[:error] = @review.errors.full_messages
       render :new
     end
   end

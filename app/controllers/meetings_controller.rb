@@ -2,8 +2,13 @@ class MeetingsController < ApplicationController
   def create
     @meeting = Meeting.new(meeting_params)
 
-    @meeting.save
-    redirect_to meeting_url(@meeting.review_slug)
+    if @meeting.save
+      flash[:notice] = "Your review for meeting `#{@meeting.title}` has been created."
+      redirect_to meeting_url(@meeting.review_slug)
+    else
+      flash[:error] = "We could not create a meeting review, please try again"
+      redirect_to :root
+    end
   end
 
   def show

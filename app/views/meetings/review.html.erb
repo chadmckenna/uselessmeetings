@@ -1,42 +1,43 @@
-<div class="max-w-full rounded overflow-hidden shadow-lg">
-  <div class="px-6 py-4">
-    <h1 class="font-bold mb-2"><%= @meeting.title %></h1>
-    <%= link_to "< Meeting Share Link", meeting_path(@meeting.review_slug) %>
-    <h3 class="mt-4">
-      Your meeting score:
-    </h3>
-    <% if @results.blank? %>
-      <div class="bg-blue-100 border border-blue-500 text-blue-700 px-4 py-3 mt-8 mb-8" role="alert">
-        <p class="font-bold">Notice:</p>
-        <p class="text-sm">There currently isn't any data. Please either bookmark this page and come back at a later time or refresh this page after all responses have be received.</p>
-      </div>
-    <% else %>
-      <p>
-        <%= render partial: 'boolean', locals: {title: 'Agenda?', data: @results[:agenda]} %>
-        <%= render partial: 'boolean', locals: {title: 'Action items?', data: @results[:action_items]} %>
+<h2 class="font-bold mb-2"><%= @meeting.title %></h2>
+<%= link_to "< Meeting Share Link", meeting_path(@meeting.review_slug) %>
+<h3 class="mt-4">
+  Your meeting score:
+</h3>
+<% if @results.blank? %>
+  <% render partial: 'layouts/notice', locals: { message: "There currently isn't any data. Please either bookmark this page and come back at a later time or refresh this page after all responses have be received." } %>
+<% else %>
+  <p>
+    <%= render partial: 'boolean', locals: {title: 'Agenda?', data: @results[:agenda]} %>
+    <%= render partial: 'boolean', locals: {title: 'Action items?', data: @results[:action_items]} %>
 
-        <%= render partial: 'range', locals: {title: 'Agenda Met Score', value: @results[:agenda_met]} %>
-        <%= render partial: 'center_range', locals: {title: 'Appropriate Meeting Time Score', value: @results[:appropriate_meeting_time]} %>
-        <%= render partial: 'center_range', locals: {title: 'Appropriate Meeting Length Score', value: @results[:appropriate_meeting_length]} %>
-        <%= render partial: 'range', locals: {title: 'Start Time Score', value: @results[:started_on_time]} %>
-        <%= render partial: 'range', locals: {title: 'End Time Score', value: @results[:ended_on_time]} %>
-        <%= render partial: 'range', locals: {title: 'On Topic Score', value: @results[:on_topic]} %>
-        <%= render partial: 'range', locals: {title: 'Usefulness Score', value: @results[:usefulness]} %>
-        <%= render partial: 'range', locals: {title: 'Necessity Score', value: @results[:necessary_to_attend]} %>
-        <%= render partial: 'range', locals: {title: 'Contribution Score', value: @results[:ability_to_contribute]} %>
+    <%= render partial: 'range', locals: {title: 'Agenda Met Score', value: @results[:agenda_met]} %>
+    <%= render partial: 'range', locals: {title: 'Appropriate Meeting Time Score', value: @results[:appropriate_meeting_time]} %>
+    <%= render partial: 'range', locals: {title: 'Appropriate Meeting Length Score', value: @results[:appropriate_meeting_length]} %>
+    <%= render partial: 'range', locals: {title: 'Start Time Score', value: @results[:started_on_time]} %>
+    <%= render partial: 'range', locals: {title: 'End Time Score', value: @results[:ended_on_time]} %>
+    <%= render partial: 'range', locals: {title: 'On Topic Score', value: @results[:on_topic]} %>
+    <%= render partial: 'range', locals: {title: 'Usefulness Score', value: @results[:usefulness]} %>
+    <%= render partial: 'range', locals: {title: 'Necessity Score', value: @results[:necessary_to_attend]} %>
+    <%= render partial: 'range', locals: {title: 'Contribution Score', value: @results[:ability_to_contribute]} %>
+  </p>
+  <h3>Improvement Recommendations:</h3>
+  <% if @meeting.reviews.map(&:improvements).reject(&:blank?).count.zero? %>
+    <%= render partial: 'layouts/notice', locals: { message: "Nobody has left any Meeting Improvement Recommendations yet" } %>
+  <% else %>
+    <% @meeting.reviews.map(&:improvements).shuffle.reject(&:blank?).each do |improvement| %>
+      <p class="text-gray-700 bg-gray-100 text-base mt-4 p-4">
+        <%= improvement %>
       </p>
-      <h3>Improvement Recommendations:</h3>
-      <% @meeting.reviews.map(&:improvements).shuffle.reject(&:blank?).each do |improvement| %>
-        <p class="text-gray-700 bg-gray-100 text-base mt-4 p-4">
-          <%= improvement %>
-        </p>
-      <% end %>
-      <h3>Other Comments:</h3>
-      <% @meeting.reviews.map(&:other_comments).shuffle.reject(&:blank?).each do |comment| %>
-        <p class="text-gray-700 bg-gray-100 text-base mt-4 p-4">
-          <%= comment %>
-        </p>
-      <% end %>
     <% end %>
-  </div>
-</div>
+  <% end %>
+  <h3>Other Comments:</h3>
+  <% if @meeting.reviews.map(&:other_comments).reject(&:blank?).count.zero? %>
+    <%= render partial: 'layouts/notice', locals: { message: "Nobody has left any Other Comments about your Meeting yet" } %>
+  <% else %>
+    <% @meeting.reviews.map(&:other_comments).shuffle.reject(&:blank?).each do |comment| %>
+      <p class="text-gray-700 bg-gray-100 text-base mt-4 p-4">
+        <%= comment %>
+      </p>
+    <% end %>
+  <% end %>
+<% end %>
