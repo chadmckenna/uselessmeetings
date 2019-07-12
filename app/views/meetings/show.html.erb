@@ -2,11 +2,15 @@
   <div class="px-6 py-4">
     <h1 class="font-bold mb-2"><%= @meeting.title %></h1>
     <p class="text-gray-700 text-base mt-4">
-      <label>Share this URL with your team:</label>
+      <label>Copy and paste this share URL with your team:</label>
       <input type="text" disabled value=<%= new_meeting_review_url(@meeting.share_slug) %> />
     </p>
     <p class="text-gray-700 text-base mt-4">
+      Once you have sent the URL out to your team, you can view an agregated and anonymized list of the results.
       <%= link_to 'View the results of your survey >', meeting_review_path(@meeting.review_slug) %>
+    </p>
+    <p class="text-gray-700 text-base mt-4">
+      Please bookmark this page so you don't lose the results of this survey. We generate random URLs for you to improve the privacy of the results, if you lose the URL, you will also lose your results.
     </p>
   </div>
 </div>
