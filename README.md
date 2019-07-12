@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## UselessMeetings!
 
-Things you may want to cover:
+The purpose of this app is to allow meeting organizers to get feedback on their
+meetings in a simple, secure, and anonymous way. It will allow the organizers to
+get useful feedback and improve the terribleness of their meetings.
 
-* Ruby version
+## Technology
 
-* System dependencies
+- Rails 6.0.0rc1
+- Ruby 2.6.3
+- Tailwind CSS
+- Postgres
 
-* Configuration
+## URL
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- [View it Live on Heroku](https://useless-meetings.herokuapp.com/)
+- [Heroku Dashboard](https://dashboard.heroku.com/apps/useless-meetings)
