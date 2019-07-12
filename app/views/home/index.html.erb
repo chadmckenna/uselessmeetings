@@ -1,43 +1,41 @@
 <h2 class="font-bold mb-2">Was your last meeting totally useless?</h2>
-<p class="text-gray-700 text-base mb-4">
+<p class="mb-4">
   Find out! Create an anonymous feedback form to send out to your meeting invitees to see what they think.
 </p>
-<p class="text-gray-700 text-base mb-4">
+<p class="mb-4">
   The survey is completely anonymous and the results are aggregated and randomized to maintain the privacy of your meeting attendees.
 </p>
 <h4>How do I get started?</h4>
-<p class="text-gray-700 text-base mb-4">
+<p class="mb-4">
   Its simple! You create a new Meeting Review that will generate a randomized, untrackable URL that you can then send out to your meeting attendees. The attendees will then fill out a quick 2 minute survey and submit the results. You can then go to the Meeting Review Results page to see how you did. Simple as that.
 </p>
-<div class="mt-2 mb-6 mx-6">
-  <%= form_with scope: :meeting, url: meetings_path, local: true do |form| %>
-    <p>
-      <%= form.label 'Simply type the name of a meeting you would like to review' %>
-      <%= form.text_field :title, placeholder: "Ex: Sprint Acceptance Demo (Monday @ 8am)" %>
-    </p>
-    <p class="mt-2">
-      <%= form.submit 'And Start a Meeting Review' %>
-    </p>
-  <% end %>
-</div>
-<div class="px-6 py-4">
-  <h4>What kind of questions does the survey ask?</h4>
-  <p class="text-gray-700 text-base mb-4">
-    The survey asks the following 13 simple questions:
-    <ul class="text-gray-700 list-disc ml-8">
-      <li>Was the meeting accompanied by an agenda?</li>
-      <li>Was the agenda met?</li>
-      <li>Did the meeting take place at an appropriate time of day?</li>
-      <li>Was the meeting the appropriate length for the agenda?</li>
-      <li>Did the meeting start on time?</li>
-      <li>Did the meeting end on time?</li>
-      <li>Did the meeting generate good action items?</li>
-      <li>Did the meeting stay on topic?</li>
-      <li>Did you find use in this meeting?</li>
-      <li>Did you feel that it was necessary that you were in attendance?</li>
-      <li>Did you feel like you were free to contribute to the conversation?</li>
-      <li>How would you improve this meeting?</li>
-      <li>Anything else you would like to tell the meeting organizer?</li>
-    </ul>
+
+<%= form_with scope: :meeting, url: meetings_path, local: true do |form| %>
+  <p>
+    <%= form.label 'Simply type the name of a meeting you would like to review' %>
+    <%= form.text_field :title, placeholder: "Ex: Sprint Acceptance Demo (Monday @ 8am)" %>
   </p>
-</div>
+  <p class="mt-2 mb-4">
+    <%= form.submit 'And Start a Meeting Review' %>
+  </p>
+<% end %>
+
+<h4>What kind of questions does the survey ask?</h4>
+<p class="text-gray-700 text-base mb-4">
+  The survey asks the following 13 simple questions:
+  <ul class="text-gray-700 list-disc ml-8">
+    <li>Was the meeting accompanied by an agenda?</li>
+    <li>Was the agenda met?</li>
+    <li>Did the meeting take place at an appropriate time of day?</li>
+    <li>Was the meeting the appropriate length for the agenda?</li>
+    <li>Did the meeting start on time?</li>
+    <li>Did the meeting end on time?</li>
+    <li>Did the meeting generate good action items?</li>
+    <li>Did the meeting stay on topic?</li>
+    <li>Did you find use in this meeting?</li>
+    <li>Did you feel that it was necessary that you were in attendance?</li>
+    <li>Did you feel like you were free to contribute to the conversation?</li>
+    <li>How would you improve this meeting?</li>
+    <li>Anything else you would like to tell the meeting organizer?</li>
+  </ul>
+</p>
