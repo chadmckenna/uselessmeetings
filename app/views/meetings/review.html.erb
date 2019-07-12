@@ -4,7 +4,7 @@
   Your meeting score:
 </h3>
 <% if @results.blank? %>
-  <% render partial: 'layouts/notice', locals: { message: "There currently isn't any data. Please either bookmark this page and come back at a later time or refresh this page after all responses have be received." } %>
+  <%= render partial: 'layouts/notice', locals: { message: "There currently isn't any data. Please either bookmark this page and come back at a later time or refresh this page after all responses have be received." } %>
 <% else %>
   <p>
     <%= render partial: 'boolean', locals: {title: 'Agenda?', data: @results[:agenda]} %>
