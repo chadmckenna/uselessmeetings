@@ -8,7 +8,7 @@ class Meeting < ApplicationRecord
     {
       agenda: {
         true: true_results(:agenda),
-        false: 1 - true_results(:agenda)
+        false: false_results(:agenda)
       },
       agenda_met: avg(:agenda_met),
       appropriate_meeting_time: avg(:appropriate_meeting_time),
@@ -17,7 +17,7 @@ class Meeting < ApplicationRecord
       ended_on_time: avg(:ended_on_time),
       action_items: {
         true: true_results(:action_items),
-        false: 1 - true_results(:action_items)
+        false: false_results(:action_items)
       },
       on_topic: avg(:on_topic),
       usefulness: avg(:usefulness),
@@ -33,6 +33,10 @@ class Meeting < ApplicationRecord
 
   def true_results(attribute)
     (reviews.map{|r| r.send(attribute)}.count(true) / reviews.count.to_f).round(1)
+  end
+
+  def false_results(attribute)
+    (reviews.map{|r| r.send(attribute)}.count(false) / reviews.count.to_f).round(1)
   end
 
   def set_slugs
