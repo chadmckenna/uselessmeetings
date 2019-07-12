@@ -22,4 +22,4 @@ test:
 
 production:
   <<: *default
-  database: useless_meeting_production
+  url: <%= ENV['DATABASE_URL'] %>
