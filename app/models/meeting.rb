@@ -32,11 +32,11 @@ class Meeting < ApplicationRecord
   end
 
   def true_results(attribute)
-    (reviews.map{|r| r.send(attribute)}.count(true) / reviews.count.to_f).round(1)
+    ((reviews.map{|r| r.send(attribute)}.count(true) / reviews.count.to_f) * 100).round(1)
   end
 
   def false_results(attribute)
-    (reviews.map{|r| r.send(attribute)}.count(false) / reviews.count.to_f).round(1)
+    ((reviews.map{|r| r.send(attribute)}.count(false) / reviews.count.to_f) * 100).round(1)
   end
 
   def set_slugs

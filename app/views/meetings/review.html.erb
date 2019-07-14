@@ -10,15 +10,15 @@
     <%= render partial: 'boolean', locals: {title: 'Agenda?', data: @results[:agenda]} %>
     <%= render partial: 'boolean', locals: {title: 'Action items?', data: @results[:action_items]} %>
 
-    <%= render partial: 'range', locals: {title: 'Agenda Met Score', value: @results[:agenda_met]} %>
-    <%= render partial: 'range', locals: {title: 'Appropriate Meeting Time Score', value: @results[:appropriate_meeting_time]} %>
-    <%= render partial: 'range', locals: {title: 'Appropriate Meeting Length Score', value: @results[:appropriate_meeting_length]} %>
-    <%= render partial: 'range', locals: {title: 'Start Time Score', value: @results[:started_on_time]} %>
-    <%= render partial: 'range', locals: {title: 'End Time Score', value: @results[:ended_on_time]} %>
-    <%= render partial: 'range', locals: {title: 'On Topic Score', value: @results[:on_topic]} %>
-    <%= render partial: 'range', locals: {title: 'Usefulness Score', value: @results[:usefulness]} %>
-    <%= render partial: 'range', locals: {title: 'Necessity Score', value: @results[:necessary_to_attend]} %>
-    <%= render partial: 'range', locals: {title: 'Contribution Score', value: @results[:ability_to_contribute]} %>
+    <%= render partial: 'range', locals: {title: 'Agenda Met Average Score', value: @results[:agenda_met]} %>
+    <%= render partial: 'range', locals: {title: 'Appropriate Meeting Time Average Score', value: @results[:appropriate_meeting_time]} %>
+    <%= render partial: 'range', locals: {title: 'Appropriate Meeting Length Average Score', value: @results[:appropriate_meeting_length]} %>
+    <%= render partial: 'range', locals: {title: 'Start Time Average Score', value: @results[:started_on_time]} %>
+    <%= render partial: 'range', locals: {title: 'End Time Average Score', value: @results[:ended_on_time]} %>
+    <%= render partial: 'range', locals: {title: 'On Topic Average Score', value: @results[:on_topic]} %>
+    <%= render partial: 'range', locals: {title: 'Usefulness Average Score', value: @results[:usefulness]} %>
+    <%= render partial: 'range', locals: {title: 'Necessity Average Score', value: @results[:necessary_to_attend]} %>
+    <%= render partial: 'range', locals: {title: 'Contribution Average Score', value: @results[:ability_to_contribute]} %>
   </p>
   <h3>Improvement Recommendations:</h3>
   <% if @meeting.reviews.map(&:improvements).reject(&:blank?).count.zero? %>
