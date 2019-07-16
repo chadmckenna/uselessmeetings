@@ -1,5 +1,14 @@
 <h2 class="font-bold mb-2"><%= @meeting.title %></h2>
-<%= link_to "< Meeting Share Link", meeting_path(@meeting.review_slug) %>
+<div class="clearfix">
+  <%= link_to "< Meeting Share Link", meeting_path(@meeting.review_slug), class: 'float-left' %>
+  <% unless @meeting.reviews.count.zero? %>
+    <div class="float-right align-middle">
+      Results based off
+      <span class="rounded-full bg-gray-200 uppercase px-2 py-1 text-xs font-bold"><%= @meeting.reviews.count %></span>
+      responses
+    </div>
+  <% end %>
+</div>
 <h3 class="mt-4">
   Your meeting score:
 </h3>
