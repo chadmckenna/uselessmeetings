@@ -16,4 +16,3 @@ get useful feedback and improve the terribleness of their meetings.
 ## URL
 
 - [View it Live on Heroku](https://useless-meetings.herokuapp.com/)
-- [Heroku Dashboard](https://dashboard.heroku.com/apps/useless-meetings)
